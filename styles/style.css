@@ -1,0 +1,156 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}
+
+.user-name {
+  margin-left: 1rem;
+  color: #FFF;
+}
+
+.header-buttons-wrapper {
+  column-gap: 4px;
+}
+
+.header-buttons-wrapper button>svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+.time {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  color: #b9b7b7;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.text-message-wrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+[data-type="receiver"].text-message-wrapper {
+  justify-content: flex-start;
+}
+
+[data-type="sender"].text-message-wrapper {
+  justify-content: flex-end;
+}
+
+.text-message {
+  padding: 0.4rem 1rem;
+  border-radius: 1.2rem;
+  backdrop-filter: blur(2px);
+  width: fit-content;
+}
+
+[data-type="receiver"] .text-message,
+[data-type="receiver"] .text-message-with-image .text-message {
+  background: rgb(255, 255, 255, 0.7);
+  color: #000;
+}
+
+[data-type="receiver"] .text-message-with-image {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+[data-type="receiver"] .text-message-with-image .text-message {
+  border-radius: 0 0 1.2rem 1.2rem;
+  width: 100%;
+}
+
+.message-image {
+  width: 100%;
+  height: auto;
+}
+
+[data-type="sender"] .text-message {
+  background: rgb(53, 141, 219, 0.7);
+  color: #FFF;
+}
+
+.text-message.sending {
+  border: 2px dashed rgb(53, 141, 219, 0.7);
+  background: transparent;
+}
+
+message-input {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.message-input-wrapper {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.message-input-element-wrapper {
+  display: flex;
+  border-radius: 2rem;
+  border: 1px solid #1B282C;
+  background: #02060A;
+  color: #A19996;
+  padding: 0.5rem 0.7rem;
+  position: relative;
+}
+
+.message-input-element {
+  display: flex;
+  width: calc(100% - 24px);
+}
+
+.button-wrapper {
+  position: absolute;
+  right: 0.7rem;
+  display: flex;
+  column-gap: 2px;
+}
+
+.add-image-button,
+.send-message-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.send-message-button {
+  display: none;
+}
+
+.selected-image-wrapper {
+  padding: 1rem;
+}
+
+.selected-image {
+  width: 100%;
+  height: auto;
+}

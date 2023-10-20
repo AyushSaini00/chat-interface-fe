@@ -35,3 +35,58 @@ input {
 .items-center {
     align-items: center;
 }
+
+body {
+    height: 100vh;
+    background-image: url('./public/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: black;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, .4);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal .modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #000;
+}
+
+.modal .modal-header {
+    width: 100%;
+    padding: 1rem;
+}
+
+.modal .close-modal svg {
+    width: 32px;
+    height: 32px;
+    fill: #FFF;
+}
+
+.modal .modal-body {
+    width: 100%;
+}
