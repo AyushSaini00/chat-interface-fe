@@ -43,7 +43,7 @@ a {
 
 body {
     height: 100vh;
-    background-image: url('./public/bg-priya.jpg');
+    background-image: url('/public/bg-priya.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

@@ -1,4 +1,5 @@
 import { createNewTextMessage } from "./dom";
+import "./messageInputComponent";
 import "../styles/common.css";
 import "../styles/style.css";
 import USERS from "../data/user";
@@ -94,3 +95,12 @@ toggleProfileBtn.addEventListener("click", (evt) => {
 
   evt.currentTarget.setAttribute("data-current-user", nextUser);
 });
+
+//init
+const init = () => {
+  setUserProfile(USERS["priya"]);
+};
+
+(() => {
+  init();
+})();
