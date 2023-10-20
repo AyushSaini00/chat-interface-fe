@@ -81,6 +81,16 @@ const setUserProfile = (user = {}) => {
 toggleProfileBtn.addEventListener("click", (evt) => {
   const currentUser = evt.currentTarget.dataset.currentUser;
   const nextUser = Object.keys(USERS).find((u) => u !== currentUser);
+
   setUserProfile(USERS[nextUser]);
+  const allSenderMessages = document.querySelectorAll(
+    `[data-type="sender"].text-message-wrapper`
+  );
+  const allReceiverMessages = document.querySelectorAll(
+    `[data-type="receiver"].text-message-wrapper`
+  );
+  allSenderMessages.forEach((msg) => msg.setAttribute("data-type", "receiver"));
+  allReceiverMessages.forEach((msg) => msg.setAttribute("data-type", "sender"));
+
   evt.currentTarget.setAttribute("data-current-user", nextUser);
 });

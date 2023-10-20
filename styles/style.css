@@ -72,6 +72,7 @@ main {
   color: #000;
 }
 
+[data-type="sender"] .text-message-with-image,
 [data-type="receiver"] .text-message-with-image {
   display: flex;
   flex-direction: column;
@@ -79,6 +80,7 @@ main {
   overflow: hidden;
 }
 
+[data-type="sender"] .text-message-with-image .text-message,
 [data-type="receiver"] .text-message-with-image .text-message {
   border-radius: 0 0 1.2rem 1.2rem;
   width: 100%;
