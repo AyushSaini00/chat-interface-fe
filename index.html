@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
     <script
-      src="src/messageInputComponent.js"
+      src="./src/messageInputComponent.js"
       type="text/javascript"
       defer
     ></script>
@@ -16,7 +16,12 @@
       <header class="header">
         <div class="flex">
           <div class="flex items-center">
-            <img class="profile-image" src="./public/priya.jpg" alt="priya" />
+            <img
+              class="profile-image"
+              src="./public/priya.jpg"
+              alt="priya"
+              onerror="imageOnError(event)"
+            />
             <span class="user-name">Priya</span>
           </div>
         </div>
@@ -35,7 +40,10 @@
               />
             </svg>
           </button>
-          <button class="flex items-center justify-center">
+          <button
+            class="flex items-center justify-center toggle-profile-btn"
+            data-current-user="priya"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -189,6 +197,11 @@
         </form>
       </div>
     </template>
-    <script type="module" src="/src/index.js"></script>
+    <script>
+      function imageOnError(event) {
+        event.target.src = "./public/profile-fallback.jpg";
+      }
+    </script>
+    <script type="module" src="./src/index.js"></script>
   </body>
 </html>

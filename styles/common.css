@@ -19,6 +19,11 @@ input {
     all: unset;
 }
 
+button,
+a {
+    cursor: pointer;
+}
+
 /* utility */
 .hidden {
     display: none !important;
@@ -38,7 +43,7 @@ input {
 
 body {
     height: 100vh;
-    background-image: url('./public/bg.jpg');
+    background-image: url('./public/bg-priya.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
