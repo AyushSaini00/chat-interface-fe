@@ -78,17 +78,16 @@ const handleMessageInputFormSubmit = (evt) => {
     closeModal({}, ".add-image-modal");
   }
 
-  const els = document.querySelectorAll(".text-message-wrapper");
-  const el = els[els.length - 1];
-
-  el.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-
   // mimicing api call
   setTimeout(() => {
+    const els = document.querySelectorAll(".text-message-wrapper");
+    const el = els[els.length - 1];
+
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
     const textElem = el.querySelector(".text-message");
     textElem.classList.remove("sending");
     messageInputElement.value = "";

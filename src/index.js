@@ -14,6 +14,7 @@ import {
   setItemToLocalStorage,
 } from "./utils";
 
+// const header = document.querySelector(".header");
 const chatElem = document.querySelector(".chat");
 const toggleProfileBtn = document.querySelector(".toggle-profile-btn");
 

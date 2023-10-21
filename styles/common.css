@@ -44,7 +44,7 @@ a {
 }
 
 body {
-    height: 100svh;
+    height: 100vh;
     background-image: url('/bg-priya.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -57,6 +57,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
 
 .modal {
