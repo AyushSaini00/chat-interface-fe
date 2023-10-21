@@ -1,9 +1,17 @@
-import { createNewTextMessage } from "./dom";
+import {
+  createNewDateNode,
+  createNewTextMessage,
+  createNewTextWithImageMessage,
+} from "./dom";
 import "./messageInputComponent";
 import "../styles/common.css";
 import "../styles/style.css";
 import USERS from "../data/user";
-import { getItemFromLocalStorage, setItemToLocalStorage } from "./utils";
+import {
+  getItemFromLocalStorage,
+  isToday,
+  setItemToLocalStorage,
+} from "./utils";
 
 const chatElem = document.querySelector(".chat");
 const messageInputElementWrapper = document.querySelector(
@@ -17,6 +25,11 @@ const sendMessageButton = document.querySelector(".send-message-button");
 const addImageModal = document.querySelector(".add-image-modal");
 const selectedImageElem = document.querySelector(".selected-image");
 const closeModalButtons = document.querySelectorAll(".close-modal");
+const toggleProfileBtn = document.querySelector(".toggle-profile-btn");
+
+// state
+const receiverUserId = toggleProfileBtn.getAttribute("data-current-user");
+const senderUserId = Object.keys(USERS).find((uid) => uid !== receiverUserId);
 
 messageInputElement.addEventListener("input", (evt) => {
   const msg = evt.target.value;
@@ -38,15 +51,15 @@ messageInputElementWrapper.addEventListener("submit", (evt) => {
   const msg = messageInputElement.value;
   createNewTextMessage(chatElem, msg);
 
-  const currentUser = toggleProfileBtn.getAttribute("data-current-user");
-  const nextUser = Object.keys(USERS).find((u) => u !== currentUser);
+  const toUser = toggleProfileBtn.getAttribute("data-current-user");
+  const fromUser = Object.keys(USERS).find((u) => u !== toUser);
   let chats = getItemFromLocalStorage("chats");
 
   chats.push({
     text: msg,
     createdAt,
-    from: currentUser,
-    to: nextUser,
+    from: fromUser,
+    to: toUser,
   });
 
   setItemToLocalStorage("chats", chats);
@@ -83,7 +96,6 @@ closeModalButtons.forEach((closeModalBtn) => {
 });
 
 // toggle user profile using the top right button between sender and receiver
-const toggleProfileBtn = document.querySelector(".toggle-profile-btn");
 
 const setUserProfile = (user = {}) => {
   const userName = document.querySelectorAll(".user-name");
@@ -114,13 +126,50 @@ toggleProfileBtn.addEventListener("click", (evt) => {
   evt.currentTarget.setAttribute("data-current-user", nextUser);
 });
 
-//init
+const renderChats = (chats) => {
+  chats.forEach((chat) => {
+    const { text, createdAt, from, to, image } = chat;
+    const type = from === senderUserId ? "sender" : "receiver";
+
+    const localDate = isToday(createdAt)
+      ? "Today"
+      : new Date(createdAt).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+
+    if (
+      ![...document.querySelectorAll(`[data-date-node-time="${localDate}"]`)]
+        .length
+    )
+      createNewDateNode(chatElem, localDate);
+
+    if (image) {
+      //render image with text message
+      createNewTextWithImageMessage(
+        chatElem,
+        text,
+        {
+          src: image,
+        },
+        type
+      );
+    } else {
+      createNewTextMessage(chatElem, text, type);
+    }
+  });
+};
+
+//initializes the app
 const init = () => {
   setUserProfile(USERS["priya"]);
   // init chat window with previous chats from localstorage
   const chats = getItemFromLocalStorage("chats");
   if (!chats) {
     setItemToLocalStorage("chats", []);
+  } else {
+    renderChats(chats);
   }
 };
 

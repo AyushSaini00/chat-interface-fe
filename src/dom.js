@@ -13,7 +13,7 @@ export const createNewTextWithImageMessage = (
   img,
   type = "sender"
 ) => {
-  const { src, alt } = img;
+  const { src, alt = "message image" } = img;
   const template = `
     <div data-type="${type}" class="text-message-wrapper">
         <div class="text-message-with-image">
@@ -27,6 +27,13 @@ export const createNewTextWithImageMessage = (
         <div class="text-message">${text}</div>
         </div>
     </div>
+    `;
+  mountElem.innerHTML += template;
+};
+
+export const createNewDateNode = (mountElem, date) => {
+  const template = `
+    <div data-date-node-time="${date}" class="time">${date}</div>
     `;
   mountElem.innerHTML += template;
 };

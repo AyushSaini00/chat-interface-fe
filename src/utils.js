@@ -15,3 +15,19 @@ export const getItemFromLocalStorage = (key) => {
     return null;
   }
 };
+
+export const isToday = (isoDate) => {
+  const isoDateObj = new Date(isoDate);
+  const currentDate = new Date();
+
+  const isDateMatchingToday =
+    isoDateObj.getFullYear() === currentDate.getFullYear() &&
+    isoDateObj.getMonth() === currentDate.getMonth() &&
+    isoDateObj.getDate() === currentDate.getDate();
+
+  if (isDateMatchingToday) {
+    return true;
+  } else {
+    return false;
+  }
+};
