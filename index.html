@@ -54,100 +54,7 @@
           </button>
         </div>
       </header>
-      <main class="chat">
-        <!-- <div class="time">5 Oct, 2023</div>
-        <div data-type="sender" class="text-message-wrapper">
-          <div class="text-message">hello ji?</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">hello! mera naam priya hai</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">aap se milkar accha laga</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">aapka naam kya hai?</div>
-        </div>
-        <div class="time">Today</div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">hello! mera naam priya hai</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">aap se milkar accha laga</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">aapka naam kya hai?</div>
-        </div>
-        <div data-type="sender" class="text-message-wrapper">
-          <div class="text-message">photo bhejo</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message-with-image">
-            <div class="message-image-wrapper flex">
-              <img
-                class="message-image"
-                src="/msg-img.jpg"
-                alt="message image"
-              />
-            </div>
-            <div class="text-message">in the office yesterday</div>
-          </div>
-        </div>
-        <div data-type="sender" class="text-message-wrapper">
-          <div class="text-message">kahan se ho?</div>
-        </div>
-        <div data-type="sender" class="text-message-wrapper">
-          <div class="text-message">
-            kahan se ho? kahan se ho? kahan se ho? kahan se ho? kahan.
-          </div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">hello! mera naam priya hai</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">aap se milkar accha laga</div>
-        </div>
-        <div data-type="receiver" class="text-message-wrapper">
-          <div class="text-message">aapka naam kya hai?</div>
-        </div>
-        <div data-type="sender" class="text-message-wrapper">
-          <div class="text-message">photo bhejo</div>
-        </div> -->
-      </main>
-      <message-input></message-input>
-    </div>
-
-    <!-- add-image-modal -->
-    <div class="modal add-image-modal hidden">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button
-            data-modal=".add-image-modal"
-            class="close-modal flex"
-            type="button"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              class="w-5 h-5"
-            >
-              <path
-                d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="selected-image-wrapper">
-            <img class="selected-image" src="" alt="" />
-          </div>
-          <message-input data-input-for="add-image-modal"></message-input>
-        </div>
-      </div>
-    </div>
-
-    <template id="message-input-template">
+      <main class="chat"></main>
       <div class="message-input-wrapper">
         <form class="message-input-element-wrapper">
           <input
@@ -191,7 +98,63 @@
           </div>
         </form>
       </div>
-    </template>
+    </div>
+
+    <!-- add-image-modal -->
+    <div class="modal add-image-modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            data-modal=".add-image-modal"
+            class="close-modal flex"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="selected-image-wrapper">
+            <img class="selected-image" src="" alt="" />
+          </div>
+          <div class="message-input-wrapper">
+            <form
+              class="message-input-element-wrapper"
+              data-form="add-image-modal"
+            >
+              <input
+                class="message-input-element"
+                type="text"
+                placeholder="Start typing..."
+                required
+              />
+              <div class="button-wrapper">
+                <button class="send-message-button" type="submit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      d="M3.105 2.289a.75.75 0 00-.826.95l1.414 4.925A1.5 1.5 0 005.135 9.25h6.115a.75.75 0 010 1.5H5.135a1.5 1.5 0 00-1.442 1.086l-1.414 4.926a.75.75 0 00.826.95 28.896 28.896 0 0015.293-7.154.75.75 0 000-1.115A28.897 28.897 0 003.105 2.289z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
       function imageOnError(event) {
         event.target.src = "/profile-fallback.jpg";

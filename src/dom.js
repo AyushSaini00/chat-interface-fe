@@ -1,7 +1,12 @@
-export const createNewTextMessage = (mountElem, text, type = "sender") => {
+export const createNewTextMessage = (
+  mountElem,
+  text,
+  type = "sender",
+  isSending = false
+) => {
   const template = `
     <div data-type="${type}" class="text-message-wrapper">
-        <div class="text-message">${text}</div>
+        <div class="text-message ${isSending ? "sending" : ""}">${text}</div>
     </div>
     `;
   mountElem.innerHTML += template;
@@ -11,7 +16,8 @@ export const createNewTextWithImageMessage = (
   mountElem,
   text,
   img,
-  type = "sender"
+  type = "sender",
+  isSending = false
 ) => {
   const { src, alt = "message image" } = img;
   const template = `
@@ -24,7 +30,7 @@ export const createNewTextWithImageMessage = (
             alt="${alt}"
             />
         </div>
-        <div class="text-message">${text}</div>
+        <div class="text-message ${isSending ? "sending" : ""}">${text}</div>
         </div>
     </div>
     `;
