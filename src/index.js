@@ -3,6 +3,7 @@ import "./messageInputComponent";
 import "../styles/common.css";
 import "../styles/style.css";
 import USERS from "../data/user";
+import { getItemFromLocalStorage, setItemToLocalStorage } from "./utils";
 
 const chatElem = document.querySelector(".chat");
 const messageInputElementWrapper = document.querySelector(
@@ -31,8 +32,25 @@ messageInputElement.addEventListener("input", (evt) => {
 
 messageInputElementWrapper.addEventListener("submit", (evt) => {
   evt.preventDefault();
+
+  const createdAt = new Date().toISOString();
+
   const msg = messageInputElement.value;
   createNewTextMessage(chatElem, msg);
+
+  const currentUser = toggleProfileBtn.getAttribute("data-current-user");
+  const nextUser = Object.keys(USERS).find((u) => u !== currentUser);
+  let chats = getItemFromLocalStorage("chats");
+
+  chats.push({
+    text: msg,
+    createdAt,
+    from: currentUser,
+    to: nextUser,
+  });
+
+  setItemToLocalStorage("chats", chats);
+
   messageInputElement.value = "";
   messageInputElement.focus();
 
@@ -99,6 +117,11 @@ toggleProfileBtn.addEventListener("click", (evt) => {
 //init
 const init = () => {
   setUserProfile(USERS["priya"]);
+  // init chat window with previous chats from localstorage
+  const chats = getItemFromLocalStorage("chats");
+  if (!chats) {
+    setItemToLocalStorage("chats", []);
+  }
 };
 
 (() => {

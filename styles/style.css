@@ -4,8 +4,10 @@
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 1rem;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
 }
 
@@ -30,8 +32,10 @@
   fill: white;
 }
 
-main {
+.chat {
   padding: 0 1rem;
+  margin: var(--header-height) 0 var(--message-input-height) 0;
+  overflow-y: auto;
 }
 
 .time {
@@ -102,8 +106,10 @@ main {
 }
 
 message-input {
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
 }
 
@@ -150,6 +156,7 @@ message-input {
 
 .selected-image-wrapper {
   padding: 1rem;
+  margin-bottom: var(--message-input-height);
 }
 
 .selected-image {

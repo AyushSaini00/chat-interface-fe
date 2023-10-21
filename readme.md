@@ -1,10 +1,10 @@
 # how?
 
 - [DONE] data should be dynamic, come from a config like - name, profile etc
-- store chat in localstorage
+- [DONE] store chat in localstorage
 - [DONE] add a toggle to change sender reciever (to mimic actual chat)
 - keyboard should open up on click of bottom input element
-- input element will have a send button after a user starts typing
+- [DONE] input element will have a send button after a user starts typing
 - add css animations as well
 - on keyboard open, the top bar should be visibile (can use whatsapp for reference how it behaves)
 - add a sending message feedback as well
@@ -14,4 +14,5 @@
     - text
     - image?
     - createdAt
-    - type<sender|receiver>
+    - from<senderId>
+    - to<receiverId>
